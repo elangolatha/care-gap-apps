@@ -15,6 +15,12 @@ Scenario: Provider closes a care gap
   When the provider marks the gap as addressed
   Then the gap moves to "Closed" with today's date
   And the open gap count decreases by 1
+Scenario: Provider cancels closing a gap
+  Given a patient chart shows an open HEDIS gap
+  When the provider clicks "Mark as addressed"
+  And then clicks "Cancel"
+  Then the gap stays open
+
 ```
 
 ## Open Questions
